@@ -1,0 +1,122 @@
+{
+  "AcceptEnv": {
+    "type": "String"
+  },
+  "AddressFamily": {
+    "type": "Single-Option",
+    "default_value": "any",
+    "options": ["any", "inet", "inet6"]
+  },
+  "AllowAgentForwarding": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "AllowGroups": {
+    "type": "String"
+  },
+  "AllowTcpForwarding": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "AllowUsers": {
+    "type": "String"
+  },
+  "AuthorizedKeysFile": {
+    "type": "String"
+  },
+  "ChallengeResponseAuthentication": {
+    "type": "Single-Option", 
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "ChrootDirectory": {
+    "type": "String"
+  },
+  "Compression": {
+    "type": "Single-Option", 
+    "default_value": "delayed",
+    "options": ["yes", "no", "delayed"]
+  },
+  "DenyGroups": {
+    "type": "String"
+  },
+  "DenyUsers": {
+    "type": "String"
+  },
+  "ForceCommand": {
+    "type": "String"
+  },
+  "GatewayPorts": {
+    "type": "String",
+    "default_value": "127.0.0.1"
+  },
+  "GSSAPIStoreCredentialsOnRekey": {
+    "type": "Single-Option",
+    "default_value": "no",
+    "options": ["yes", "no"]
+  },
+  "HostbasedUsesNameFromPacketOnly": {
+    "type": "Single-Option",
+    "default_value": "no",
+    "options": ["yes", "no"]
+  },
+  "HostKey": {
+    "type": "String",
+    "default_value": "/etc/ssh/ssh_host_key"
+  },
+  "IgnoreRhosts": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "IgnoreUserKnownHosts": {
+    "type": "Single-Option",
+    "default_value": "no",
+    "options": ["yes", "no"]
+  },
+  "KerberosAuthentication": {
+    "type": "Single-Option",
+    "default_value": "no",
+    "options": ["yes", "no"]
+  },
+  "KerberosGetAFSToken": {
+    "type": "Single-Option",
+    "default_value": "no",
+    "options": ["yes", "no"]
+  },
+  "KerberosOrLocalPasswd": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "KerberosTicketCleanup": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "KerberosUseKuserok": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "KeyRegenerationInterval": {
+    "type": "Number",
+    "default_value": "3600"
+  },
+  "ListenAddress": {
+    "type": "String"
+  },
+  "LoginGraceTime": {
+    "type": "Number",
+    "default_value": "120"
+  },
+  "LogLevel": {
+    "type": "Single-Option",
+    "default_value": "INFO",
+    "options": ["QUIET", "FATAL", "ERROR",
+      "INFO", "VERBOSE", "DEBUG",
+      "DEBUG1", "DEBUG2", "DEBUG3"]
+  }
+}

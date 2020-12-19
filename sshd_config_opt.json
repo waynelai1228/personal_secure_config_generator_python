@@ -118,5 +118,175 @@
     "options": ["QUIET", "FATAL", "ERROR",
       "INFO", "VERBOSE", "DEBUG",
       "DEBUG1", "DEBUG2", "DEBUG3"]
+  },
+  "MACs": {
+    "type": "Multiple-Option",
+    "options": ["hmac-md5", "hmac-md5-96", "hmac-sha1",
+      "hmac-sha1-96", "hmac-sha2-256", "hmac-sha2-512",
+      "umac-64@openssh.com", "umac-128@openssh.com",
+      "hmac-md5-etm@openssh.com", "hmac-md5-96-etm@openssh.com",
+      "hmac-sha2-256-etm@openssh.com", "hmac-sha2-512-etm@openssh.com",
+      "umac-64-etm@openssh.com", "umac-128-etm@openssh.com"]
+  },
+  "Match": {
+    "type": "String"
+  },
+  "MaxAuthTries": {
+    "type": "Number",
+    "default_value": "6"
+  },
+  "MaxSessions": {
+    "type": "Number",
+    "default_value": "10"
+  },
+  "MaxStartups": {
+    "type": "Start-Rate-Full",
+    "default_value": "10:30:60"
+  },
+  "PasswordAuthentication": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "PermitEmptyPasswords": {
+    "type": "Single-Option",
+    "default_value": "no",
+    "options": ["yes", "no"]
+  },
+  "PermitListen": {
+    "type": "Address"
+  },
+  "PermitOpen": {
+    "type": "Address"
+  },
+  "PermitRootLogin": {
+    "type": "Single-Option",
+    "default_value": "prohibit-password",
+    "options": ["yes", "no", "prohibit-password", "forced-commands-only"]
+  },
+  "PermitTTY": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "PermitTunnel": {
+    "type": "Single-Option",
+    "default_value": "no",
+    "options": ["yes", "no", "point-to-point", "ethernet"]
+  },
+  "PermitUserEnvironment": {
+    "type": "String",
+    "default_value": "no"
+  },
+  "PermitUserRC": {
+    "type": "Single-Option",
+    "default_value": "yes"
+  },
+  "PidFile": {
+    "type": "String",
+    "default_value": "/var/run/sshd.pid"
+  },
+  "Port": {
+    "type": "Number",
+    "default_value": "22"
+  },
+  "PrintLastLog": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "PrintMotd": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "PubkeyAcceptedKeyTypes": {
+    "type": "String"
+  },
+  "PubkeyAuthentication": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "RekeyLimit": {
+    "type": "String",
+    "default_value": "default none"
+  },
+  "RevokedKeys": {
+    "type": "String"
+  },
+  "RDomain": {
+    "type": "String"
+  },
+  "SetEnv": {
+    "type": "String"
+  },
+  "StreamLocalBindMask": {
+    "type": "umask",
+    "default_value": "0177"
+  },
+  "StreamLocalBindUnlink": {
+    "type": "Single-Option",
+    "default_value": "no",
+    "options": ["yes", "no"]
+  },
+  "StrictModes": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "Subsystem": {
+    "type": "String"
+  },
+  "SyslogFacility": {
+    "type": "Single-Option",
+    "default_value": "AUTH",
+    "options": ["DAEMON", "USER", "AUTH", "AUTHPRIV",
+      "LOCAL0", "LOCAL1", "LOCAL2", "LOCAL3", "LOCAL4",
+      "LOCAL5", "LOCAL6", "LOCAL7"]
+  },
+  "TCPKeepAlive": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "TrustedUserCAKeys": {
+    "type": "String"
+  },
+  "UserDNS": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "UsePAM": {
+    "type": "Single-Option",
+    "default_value": "yes",
+    "options": ["yes", "no"]
+  },
+  "VersionAddendum": {
+    "type": "String",
+    "default_value": "none"
+  },
+  "X11DisplayOffset": {
+    "type": "Number",
+    "default_value": "10"
+  },
+  "X11MaxDisplays": {
+    "type": "Number",
+    "default_value": "1000"
+  },
+  "X11Forwarding": {
+    "type": "Single-Option",
+    "default_value": "no",
+    "options": ["yes", "no"]
+  },
+  "X11UserLocalhost": {
+    "type": "Single-Option",
+    "default_value": "no",
+    "options": ["yes", "no"]
+  },
+  "XAuthLocation": {
+    "type": "String",
+    "default_value": "/usr/bin/xauth"
   }
 }

@@ -1,7 +1,7 @@
 import json
 
 class SSHDConfig:
-  def __init__(self, keyword, argument, description):
+  def __init__(self, keyword, argument):
     sshd_config_json = open("sshd_config_opt.json", "r")
     sshd_config_v2_json = open("sshd_config_opt_v2.json", "r")
     # This structure holds all the setting names and permitted value
@@ -18,13 +18,28 @@ class SSHDConfig:
     # first check that the keyword is a valid setting
     if keyword in self.sshd_config_opt:
       # use the key to get to the type
+      setting_type = sshd_config_json[keyword][type]
 
       # if type is string, then argument can be anything
+      if setting_type == "String":
+        self.key = keyword
+        self.arg = argument
 
       # if type is single value, then argument must be on of the options
+      if setting_type == "Single-Option":
+        if argument in sshd_config_json[keyword][options]:
+          self.key = keyword
+          self.arg = argument
 
       # if type is multi option, split the argument using delimiter ','
       # and check that each individual value is valid
-      self.key = keyword
-    self.arg = argument
-    self.desc = description
+      if setting_type == "Multi-Option":
+        arguments = argument.split", "
+        argument_valid = True 
+        while option in arguments:
+          if option not in sshd_config_json[keyword][options]:
+            argument_valid = False
+            break
+        if argument_valid:
+          self.key = keyword
+          self.arg = argument

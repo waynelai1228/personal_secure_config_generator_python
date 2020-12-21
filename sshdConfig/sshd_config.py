@@ -1,9 +1,10 @@
+from definitions import ROOT_DIR  # the root directory of this project
 import json
 
 class SSHDConfig:
   def __init__(self, keyword, argument):
-    sshd_config_json = open("sshd_config_opt.json", "r")
-    sshd_config_v2_json = open("sshd_config_opt_v2.json", "r")
+    sshd_config_json = open(ROOT_DIR + "/sshdConfig/sshd_config_opt.json", "r")
+    sshd_config_v2_json = open(ROOT_DIR + "/sshdConfig/sshd_config_opt_v2.json", "r")
     # This structure holds all the setting names and permitted value
     #
     # For now, the options that are customizable are marked by 'String'
@@ -18,7 +19,7 @@ class SSHDConfig:
     # first check that the keyword is a valid setting
     if keyword in self.sshd_config_opt:
       # use the key to get to the type
-      setting_type = sshd_config_json[keyword][type]
+      setting_type = self.sshd_config_opt[keyword]["type"]
 
       # if type is string, then argument can be anything
       if setting_type == "String":
@@ -27,17 +28,17 @@ class SSHDConfig:
 
       # if type is single value, then argument must be on of the options
       if setting_type == "Single-Option":
-        if argument in sshd_config_json[keyword][options]:
+        if argument in self.sshd_config_opt[keyword]["options"]:
           self.key = keyword
           self.arg = argument
 
       # if type is multi option, split the argument using delimiter ','
       # and check that each individual value is valid
       if setting_type == "Multi-Option":
-        arguments = argument.split", "
+        arguments = argument.split(", ")
         argument_valid = True 
         while option in arguments:
-          if option not in sshd_config_json[keyword][options]:
+          if option not in self.sshd_config_opt[keyword]["options"]:
             argument_valid = False
             break
         if argument_valid:

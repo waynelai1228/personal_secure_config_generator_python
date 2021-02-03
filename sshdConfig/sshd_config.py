@@ -1,7 +1,9 @@
 from definitions import ROOT_DIR  # the root directory of this project
 import json
 
+# this class stores a single sshd configuration
 class SSHDConfig:
+  # constructor takes a configuration keyword and its corresponding argument
   def __init__(self, keyword, argument):
     sshd_config_json = open(ROOT_DIR + "/sshdConfig/sshd_config_opt.json", "r")
     sshd_config_v2_json = open(ROOT_DIR + "/sshdConfig/sshd_config_opt_v2.json", "r")
@@ -44,3 +46,6 @@ class SSHDConfig:
         if argument_valid:
           self.key = keyword
           self.arg = argument
+
+  def __str__(self):
+    return self.key + " " + self.arg + "\n"

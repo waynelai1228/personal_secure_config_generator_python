@@ -9,4 +9,10 @@ def test_validConfig():
   cipherSetting = SSHDConfig("Ciphers", "3des-cbc, aes192-cbc, aes128-ctr") 
 
 def test_invalidConfig():
-  assert False
+  invalidKeyArgSetting = SSHDConfig("Invalid", "Setting")
+  assert not hasattr(invalidKeyArgSetting, 'key')
+  invalidArgMultiSetting = SSHDConfig("Ciphers", "3des-cbc, aes192-cbc, aes128")
+  assert not hasattr(invalidArgMultiSetting, 'key')
+  invalidArgSingleSetting = SSHDConfig("PermitRootLogin", "No")
+  assert not hasattr(invalidArgSingleSetting, 'key')
+  invalidKeySetting = SSHDConfig("PermitrootLogin", "yes")
